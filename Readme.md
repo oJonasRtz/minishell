@@ -8,7 +8,7 @@ This project is part of the curriculum of the `Ecole 42`.
 ## Architecture
 
 General
-```
+```mermaid
 flowchart TD
 
     %% Main lifecycle
@@ -54,7 +54,7 @@ flowchart TD
 ```
 
 The shell processes commands through mutiples stages before execution
-```
+```mermaid
 flowchart TD
     A[User Input] --> B[Lexer]
     B --> C[Syntax Analyzer]
@@ -64,7 +64,7 @@ flowchart TD
 
 ## Program  Lifecycle
 
-```
+```mermaid
 flowchart TD
     A[main()] --> B[create()]
     B --> C[execute()]
@@ -84,7 +84,7 @@ After initialization it transfers control to the execution loop.
 
 ### Execute
 Handles the main shell loop.
-```
+```mermaid
 flowchart TD
     A[display_prompt()] --> B[analysis()]
     B --> C[Command Execution]
@@ -97,7 +97,7 @@ Commands are executed using a `AST-Based` execution model.
 Exemple:
 `ls -l | grep minishell > out.txt`  
 AST representation:
-```
+```mermaid
 graph TD
     PIPE --> CMD1[CMD: ls -l]
     PIPE --> REDIR[REDIR > out.txt]
@@ -120,7 +120,7 @@ Redirections are processed by `manage_redir()` which:
 - applies them using `dup2`
 - restores original descriptors after execution
 
-```
+```mermaid
 flowchart TD
     A[save_origin<br/>save STDIN STDOUT] --> B[manage_redir]
     B --> C[apply_redirect]
