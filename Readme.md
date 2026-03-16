@@ -85,7 +85,7 @@ After initialization it transfers control to the execution loop.
 Handles the main shell loop.
 ```mermaid
 flowchart TD
-    A[display_prompt()] --> B[analysis()]
+    A["display_prompt()"] --> B["analysis()"]
     B --> C[Command Execution]
 ```
 Each user command goes through the full parsing and execution pipeline.
