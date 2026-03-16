@@ -11,26 +11,22 @@ General
 ```mermaid
 flowchart TD
 
-    %% Main lifecycle
     A[Create] --> B[Execute]
     B --> C[Destroy]
 
     %% CREATE
-    subgraph CREATE_STAGE [Create]
+    subgraph CREATE_STAGE [Create Stage]
         direction LR
-        A --> A1[init_data()]
-        A1 --> A2[allocate prompt struct]
+        A1[init_data()] --> A2[allocate prompt struct]
         A2 --> A3[initialize variables]
         A3 --> A4[export_init(envp)]
         A4 --> A5[setup environment]
     end
 
     %% EXECUTE
-    subgraph EXECUTE_STAGE [Execute]
+    subgraph EXECUTE_STAGE [Execute Stage]
         direction LR
-        B --> B1[display_prompt loop]
-
-        B1 --> B2[readline()]
+        B1[display_prompt loop] --> B2[readline()]
         B2 --> B3[handle_space()]
         B3 --> B4[add_history()]
         B4 --> B5[analysis()]
@@ -43,14 +39,18 @@ flowchart TD
     end
 
     %% DESTROY
-    subgraph DESTROY_STAGE [Destroy]
+    subgraph DESTROY_STAGE [Destroy Stage]
         direction LR
-        C --> C1[export_clean()]
-        C1 --> C2[clean_locals()]
+        C1[export_clean()] --> C2[clean_locals()]
         C2 --> C3[free prompt/input]
         C3 --> C4[reset pointers]
         C4 --> C5[exit()]
     end
+
+    %% Links
+    A --> A1
+    B --> B1
+    C --> C1
 ```
 
 The shell processes commands through mutiples stages before execution
