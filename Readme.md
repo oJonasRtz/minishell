@@ -15,39 +15,38 @@ flowchart TD
     B --> C[Destroy]
 
     %% CREATE
-    subgraph CREATE_STAGE [Create Stage]
+    subgraph CREATE_STAGE["Create Stage"]
         direction LR
-        A1[init_data()] --> A2[allocate prompt struct]
-        A2 --> A3[initialize variables]
-        A3 --> A4[export_init(envp)]
-        A4 --> A5[setup environment]
+        A1["init_data()"] --> A2["allocate prompt struct"]
+        A2 --> A3["initialize variables"]
+        A3 --> A4["export_init(envp)"]
+        A4 --> A5["setup environment"]
     end
 
     %% EXECUTE
-    subgraph EXECUTE_STAGE [Execute Stage]
+    subgraph EXECUTE_STAGE["Execute Stage"]
         direction LR
-        B1[display_prompt loop] --> B2[readline()]
-        B2 --> B3[handle_space()]
-        B3 --> B4[add_history()]
-        B4 --> B5[analysis()]
+        B1["display_prompt loop"] --> B2["readline()"]
+        B2 --> B3["handle_space()"]
+        B3 --> B4["add_history()"]
+        B4 --> B5["analysis()"]
 
-        B5 --> B6[updateenvp()]
-        B6 --> B7[lexer()]
-        B7 --> B8[check_syntax()]
-        B8 --> B9[make_ast()]
-        B9 --> B10[minishell executor]
+        B5 --> B6["updateenvp()"]
+        B6 --> B7["lexer()"]
+        B7 --> B8["check_syntax()"]
+        B8 --> B9["make_ast()"]
+        B9 --> B10["minishell executor"]
     end
 
     %% DESTROY
-    subgraph DESTROY_STAGE [Destroy Stage]
+    subgraph DESTROY_STAGE["Destroy Stage"]
         direction LR
-        C1[export_clean()] --> C2[clean_locals()]
-        C2 --> C3[free prompt/input]
-        C3 --> C4[reset pointers]
-        C4 --> C5[exit()]
+        C1["export_clean()"] --> C2["clean_locals()"]
+        C2 --> C3["free prompt/input"]
+        C3 --> C4["reset pointers"]
+        C4 --> C5["exit()"]
     end
 
-    %% Links
     A --> A1
     B --> B1
     C --> C1
