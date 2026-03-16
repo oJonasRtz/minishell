@@ -5,6 +5,10 @@ The goal of the project is to understand how shells work internally by implement
 
 This project is part of the curriculum of the `Ecole 42`.
 
+## Authors
+- <a href="https://github.com/oJonasRtz">Jonas</a>
+- <a href="https://github.com/fernandoruanb">Fernando</a>
+
 ## Architecture
 
 General
