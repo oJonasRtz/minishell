@@ -65,9 +65,9 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-    A[main()] --> B[create()]
-    B --> C[execute()]
-    C --> D[destroy()]
+    A["main()"] --> B["create()"]
+    B --> C["execute()"]
+    C --> D["destroy()"]
 ```
 
 ### Main
