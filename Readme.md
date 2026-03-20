@@ -62,7 +62,7 @@ flowchart TD
     A[User Input] --> B[Lexer]
     B --> C[Syntax Analyzer]
     C --> D[AST Builder]
-    D --> E[Executor]
+    D --> E[Executor] --> A
 ```
 
 ## Program  Lifecycle
